@@ -36,7 +36,10 @@ owner=roads-untraveled                                                          
 repo=db-migrations                                                                      \
 path=postgres/mig                                                                       \
 ref=master                                                                              \
-    migrate -source "github://${user}:${pac}@${owner}/${repo}/${path}#${ref}" -database ${postgresql_url} up
+    migrate \
+        -source "github://${user}:${pac}@${owner}/${repo}/${path}#${ref}" \
+        -database ${postgresql_url} \
+        up
 ```
 
 ## TODO
