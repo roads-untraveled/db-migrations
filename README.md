@@ -29,17 +29,13 @@ postgresql_url='postgres://postgres:password@localhost:5432/example?sslmode=disa
 ```bash
 #imigrate  -source <source_gh_url> -database <db_url> < up | down >
 
-postgresql_url='postgres://postgres:password@localhost:5432/example?sslmode=disable'    \
-RU_user=dvojak-cz                                                                          \
-RU_pac=personal-access-token                                                               \
-RU_owner=roads-untraveled                                                                  \
-RU_repo=db-migrations                                                                      \
-RU_path=postgres/mig                                                                       \
-RU_ref=master                                                                              \
-    migrate \
-        -source "github://${RU_user}:${RU_pac}@${RU_owner}/${RU_repo}/${RU_path}#${ref}" \
-        -database ${postgresql_url} \
-        up
+source .env
+source .env.dev
+postgresql_url='postgres://postgres:password@localhost:5432/example?sslmode=disable' \
+migrate \
+    -source "github://${RU_user}:${RU_pac}@${RU_owner}/${RU_repo}/${RU_path}#${ref}" \
+    -database ${postgresql_url} \
+    up
 ```
 
 ## TODO
