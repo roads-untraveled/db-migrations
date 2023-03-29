@@ -8,8 +8,8 @@ CREATE TABLE IF NOT EXISTS "stations"
         "deleted_at" timestamptz,
         "name" text,
         "display_name" text,
-        "station_lat" decimal,
-        "station_lon" decimal,
+        "coordinate_lat" decimal,
+        "coordinate_lon" decimal,
 
             PRIMARY KEY ("id")
     );
@@ -23,8 +23,8 @@ CREATE TABLE IF NOT EXISTS "stops" (
     "deleted_at" timestamptz,
     "station_id" bigint NOT NULL,
     "label" text NOT NULL,
-    "stop_lat" decimal,
-    "stop_lon" decimal,
+    "coordinate_lat" decimal,
+    "coordinate_lon" decimal,
 
         PRIMARY KEY ("id"),
         CONSTRAINT "fk_stations_stops" FOREIGN KEY ("station_id") REFERENCES "stations"("id")
